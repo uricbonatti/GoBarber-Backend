@@ -30,7 +30,7 @@
       "error",
       { "argsIgnorePattern": "_" }
     ],
-    "@typescriot-eslint/interface-name-prefix": [
+    "@typescript-eslint/interface-name-prefix": [
       "error",
       { "prefixWithI": "always" }
     ],
