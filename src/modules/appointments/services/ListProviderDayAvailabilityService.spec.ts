@@ -1,18 +1,18 @@
-import ListProviderDayAvaliabilityService from './ListProviderDayAvaliabilityService';
+import ListProviderDayAvailabilityService from './ListProviderDayAvailabilityService';
 import FakeAppointmentsRepository from '../repositories/fakes/FakeAppointmentsRepository';
 
-let listProviderDayAvaliability: ListProviderDayAvaliabilityService;
+let listProviderDayAvailability: ListProviderDayAvailabilityService;
 let fakeAppointmentsRepository: FakeAppointmentsRepository;
 
-describe('ListProviderDayAvaliability', () => {
+describe('ListProviderDayAvailability', () => {
   beforeEach(() => {
     fakeAppointmentsRepository = new FakeAppointmentsRepository();
-    listProviderDayAvaliability = new ListProviderDayAvaliabilityService(
+    listProviderDayAvailability = new ListProviderDayAvailabilityService(
       fakeAppointmentsRepository,
     );
   });
 
-  it('should be able to list the hour avaliability in day from provider', async () => {
+  it('should be able to list the hour availability in day from provider', async () => {
     await fakeAppointmentsRepository.create({
       provider_id: 'user',
       user_id: 'user',
@@ -32,20 +32,20 @@ describe('ListProviderDayAvaliability', () => {
     jest.spyOn(Date, 'now').mockImplementationOnce(() => {
       return new Date(2020, 8, 15, 11).getTime();
     });
-    const avaliability = await listProviderDayAvaliability.execute({
+    const availability = await listProviderDayAvailability.execute({
       provider_id: 'user',
       year: 2020,
       month: 9,
       day: 15,
     });
 
-    expect(avaliability).toEqual(
+    expect(availability).toEqual(
       expect.arrayContaining([
-        { hour: 8, avaliable: false },
-        { hour: 13, avaliable: true },
-        { hour: 14, avaliable: false },
-        { hour: 15, avaliable: true },
-        { hour: 16, avaliable: false },
+        { hour: 8, available: false },
+        { hour: 13, available: true },
+        { hour: 14, available: false },
+        { hour: 15, available: true },
+        { hour: 16, available: false },
       ]),
     );
   });

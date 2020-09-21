@@ -1,18 +1,18 @@
-import ListProviderMonthAvaliabilityService from './ListProviderMonthAvaliabilityService';
+import ListProviderMonthAvailabilityService from './ListProviderMonthAvailabilityService';
 import FakeAppointmentsRepository from '../repositories/fakes/FakeAppointmentsRepository';
 
-let listProviderMonthAvaliability: ListProviderMonthAvaliabilityService;
+let listProviderMonthAvailability: ListProviderMonthAvailabilityService;
 let fakeAppointmentsRepository: FakeAppointmentsRepository;
 
-describe('ListProviderMonthAvaliability', () => {
+describe('ListProviderMonthAvailability', () => {
   beforeEach(() => {
     fakeAppointmentsRepository = new FakeAppointmentsRepository();
-    listProviderMonthAvaliability = new ListProviderMonthAvaliabilityService(
+    listProviderMonthAvailability = new ListProviderMonthAvailabilityService(
       fakeAppointmentsRepository,
     );
   });
 
-  it('should be able to list the day avaliability in month from provider', async () => {
+  it('should be able to list the day availability in month from provider', async () => {
     // eslint-disable-next-line no-plusplus
     for (let i = 8; i <= 17; i++) {
       // eslint-disable-next-line no-await-in-loop
@@ -28,18 +28,18 @@ describe('ListProviderMonthAvaliability', () => {
       date: new Date(2020, 8, 15, 8, 0, 0),
     });
 
-    const avaliability = await listProviderMonthAvaliability.execute({
+    const availability = await listProviderMonthAvailability.execute({
       provider_id: 'user',
       year: 2020,
       month: 9,
     });
 
-    expect(avaliability).toEqual(
+    expect(availability).toEqual(
       expect.arrayContaining([
-        { day: 13, avaliable: true },
-        { day: 14, avaliable: false },
-        { day: 15, avaliable: true },
-        { day: 16, avaliable: true },
+        { day: 13, available: true },
+        { day: 14, available: false },
+        { day: 15, available: true },
+        { day: 16, available: true },
       ]),
     );
   });

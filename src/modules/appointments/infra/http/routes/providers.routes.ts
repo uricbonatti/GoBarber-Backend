@@ -3,13 +3,13 @@ import { celebrate, Segments, Joi } from 'celebrate';
 
 import ensureAuthenticated from '@modules/users/infra/http/middlewares/ensureAuthenticated';
 import ProvidersController from '../controllers/ProvidersController';
-import ProviderDayAvaliabilityController from '../controllers/ProviderDayAvaliabilityController';
-import ProviderMonthAvaliabilityController from '../controllers/ProviderMonthAvaliabilityContoller';
+import ProviderDayAvailabilityController from '../controllers/ProviderDayAvailabilityController';
+import ProviderMonthAvailabilityController from '../controllers/ProviderMonthAvailabilityContoller';
 
 const providersRouter = Router();
 const providersController = new ProvidersController();
-const providerDayAvaliabilityController = new ProviderDayAvaliabilityController();
-const providerMonthAvaliabilityController = new ProviderMonthAvaliabilityController();
+const providerDayAvailabilityController = new ProviderDayAvailabilityController();
+const providerMonthAvailabilityController = new ProviderMonthAvailabilityController();
 
 providersRouter.use(ensureAuthenticated);
 
@@ -21,7 +21,7 @@ providersRouter.get(
       provider_id: Joi.string().uuid().required(),
     },
   }),
-  providerMonthAvaliabilityController.index,
+  providerMonthAvailabilityController.index,
 );
 providersRouter.get(
   '/:provider_id/day-availability',
@@ -30,7 +30,7 @@ providersRouter.get(
       provider_id: Joi.string().uuid().required(),
     },
   }),
-  providerDayAvaliabilityController.index,
+  providerDayAvailabilityController.index,
 );
 
 export default providersRouter;

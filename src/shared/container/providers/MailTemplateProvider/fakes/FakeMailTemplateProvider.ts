@@ -1,3 +1,4 @@
+/* eslint-disable no-empty-pattern */
 import IMailTemplateProvider from '../models/IMailTemplateProvider';
 import IParseMailTemplateDTO from '../dtos/IParseMailTemplateDTO';
 
