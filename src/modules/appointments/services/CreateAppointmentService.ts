@@ -20,7 +20,7 @@ class CreateAppointmentService {
     private appointmentsRepository: IAppointmentsRepository,
     @inject('NotificationsRepository')
     private notificationsRepository: INotificationsRepository,
-    @inject('CacheProvier')
+    @inject('CacheProvider')
     private cacheProvider: ICacheProvider,
   ) {}
 
@@ -29,7 +29,7 @@ class CreateAppointmentService {
     provider_id,
     user_id,
   }: IRequest): Promise<Appointment> {
-    const appointmentDate = startOfHour(date);
+    const appointmentDate = startOfHour(new Date(date));
 
     if (user_id === provider_id) {
       throw new AppError(

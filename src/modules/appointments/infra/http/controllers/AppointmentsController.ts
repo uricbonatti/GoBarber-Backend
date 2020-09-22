@@ -14,7 +14,6 @@ export default class AppointmentsController {
       provider_id,
       user_id,
     });
-
     return response.json(appointment);
   }
 }
