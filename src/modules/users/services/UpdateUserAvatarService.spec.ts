@@ -19,7 +19,7 @@ describe('UpdateUserAvatar', () => {
     );
   });
 
-  it('should be able to create a new user', async () => {
+  it('should be able to update a  user', async () => {
     const user = await fakeUsersRepository.create({
       name: 'John Doe',
       email: 'johndoe@example.com',

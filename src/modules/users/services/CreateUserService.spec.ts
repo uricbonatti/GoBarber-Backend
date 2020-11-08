@@ -32,7 +32,7 @@ describe('CreateUser', () => {
     expect(user).toHaveProperty('id');
   });
 
-  it('should nob be able to create a new user with same email from another', async () => {
+  it('should not be able to create a new user with same email from another', async () => {
     await createUser.execute({
       name: 'John Doe',
       email: 'jdoe@example.com',
